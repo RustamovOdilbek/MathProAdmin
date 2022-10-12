@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="89dp"
+    android:background="#EFEFEF"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cvImage"
+        android:layout_width="58dp"
+        android:layout_height="58dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:cardCornerRadius="29dp"
+        android:layout_marginStart="24dp"
+        app:strokeColor="@color/white"
+        app:strokeWidth="3dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_launcher_background"/>
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/cvImage"
+        app:layout_constraintStart_toEndOf="@id/cvImage"
+        android:layout_marginStart="10dp"
+        android:textStyle="bold"
+        android:text="Robert Fox"
+        android:textSize="16sp"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:id="@+id/tvAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tvName"
+        app:layout_constraintBottom_toTopOf="@id/tvEmail"
+        app:layout_constraintStart_toEndOf="@id/cvImage"
+        android:layout_marginStart="10dp"
+        android:textStyle="bold"
+        android:text="Robert Fox"
+        android:textSize="14sp"
+        android:textColor="#BDBDBD"/>
+
+    <TextView
+        android:id="@+id/tvType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="(school)"
+        android:textColor="#BDBDBD"
+        android:textSize="14sp"
+        app:layout_constraintTop_toTopOf="@id/tvAddress"
+        app:layout_constraintBottom_toBottomOf="@id/tvAddress"
+        app:layout_constraintStart_toEndOf="@id/tvAddress"
+        android:layout_marginStart="5dp"/>
+
+    <TextView
+        android:id="@+id/tvUserBirth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="18.06.2014"
+        android:textSize="14sp"
+        android:textColor="#BDBDBD"
+        app:layout_constraintTop_toTopOf="@id/tvType"
+        app:layout_constraintBottom_toBottomOf="@id/tvType"
+        app:layout_constraintStart_toEndOf="@id/tvType"
+        android:layout_marginStart="5dp"/>
+
+    <TextView
+        android:id="@+id/tvEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tvAddress"
+        app:layout_constraintBottom_toBottomOf="@id/cvImage"
+        app:layout_constraintStart_toEndOf="@id/cvImage"
+        android:layout_marginStart="10dp"
+        android:textStyle="bold"
+        android:text="turghunov94"
+        android:textSize="12sp"
+        android:textColor="#BDBDBD"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="998 90 242 11 12"
+        android:textColor="@color/m_green"
+        android:textSize="12sp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintTop_toTopOf="@id/tvEmail"
+        app:layout_constraintBottom_toBottomOf="@id/tvEmail"
+        app:layout_constraintStart_toEndOf="@id/tvEmail"/>
+
+    <ImageView
+        android:layout_width="13dp"
+        android:layout_height="13dp"
+        android:src="@drawable/close_red"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:scaleType="centerCrop"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="27dp"/>
+    
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="#BDBDBD"
+        android:layout_marginTop="5dp"
+        android:layout_marginHorizontal="24dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

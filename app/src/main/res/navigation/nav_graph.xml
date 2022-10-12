@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph.xml"
+    app:startDestination="@id/registrationFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.mathpro.admin.ui.fragment.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_usersFragment"
+            app:destination="@id/usersFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_motivationalVideosFragment"
+            app:destination="@id/motivationalVideosFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_dailyNewsFragment"
+            app:destination="@id/dailyNewsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_lessonsFragment"
+            app:destination="@id/lessonsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_variantTestsFragment"
+            app:destination="@id/variantTestsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/dailyNewsFragment"
+        android:name="com.mathpro.admin.ui.fragment.dailynews.DailyNewsFragment"
+        android:label="fragment_daily_news"
+        tools:layout="@layout/fragment_daily_news" />
+    <fragment
+        android:id="@+id/lessonsFragment"
+        android:name="com.mathpro.admin.ui.fragment.lessons.LessonsFragment"
+        android:label="fragment_lessons"
+        tools:layout="@layout/fragment_lessons" />
+    <fragment
+        android:id="@+id/motivationalVideosFragment"
+        android:name="com.mathpro.admin.ui.fragment.motivation.MotivationalVideosFragment"
+        android:label="fragment_motivational_videos"
+        tools:layout="@layout/fragment_motivational_videos" />
+    <fragment
+        android:id="@+id/registrationFragment"
+        android:name="com.mathpro.admin.ui.fragment.registration.RegistrationFragment"
+        android:label="fragment_registration"
+        tools:layout="@layout/fragment_registration" >
+        <action
+            android:id="@+id/action_registrationFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/usersFragment"
+        android:name="com.mathpro.admin.ui.fragment.users.UsersFragment"
+        android:label="fragment_users"
+        tools:layout="@layout/fragment_users" />
+    <fragment
+        android:id="@+id/variantTestsFragment"
+        android:name="com.mathpro.admin.ui.fragment.varianttests.VariantTestsFragment"
+        android:label="fragment_variant_tests"
+        tools:layout="@layout/fragment_variant_tests" />
+</navigation>

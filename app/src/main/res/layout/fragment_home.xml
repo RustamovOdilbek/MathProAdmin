@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.fragment.home.HomeFragment"
+    android:background="#EFEFEF">
+
+    <ImageView
+        android:id="@+id/ivLogoSmall"
+        android:layout_width="32dp"
+        android:layout_height="28dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/logo_small"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="27dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/ivLogoSmall"
+        app:layout_constraintTop_toTopOf="@id/ivLogoSmall"
+        app:layout_constraintBottom_toBottomOf="@id/ivLogoSmall"
+        android:text="MathPro"
+        android:textSize="16sp"
+        android:layout_marginStart="10dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:id="@+id/tvAdminPanel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivLogoSmall"
+        android:layout_marginStart="24sp"
+        android:layout_marginTop="26dp"
+        android:textSize="16dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:text="Admin panel" />
+    
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvAdminPanel"
+        android:layout_marginTop="8dp"
+        android:layout_marginHorizontal="24dp"
+        android:background="#BDBDBD"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnUsers"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/edittext_background"
+        app:backgroundTint="@null"
+        android:text="Foydalanuvchilar"
+        android:textColor="@color/black"
+        android:gravity="center_vertical"
+        android:textSize="14sp"
+        android:paddingHorizontal="24dp"
+        android:drawableRight="@drawable/right"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnLessons"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnUsers"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/edittext_background"
+        app:backgroundTint="@null"
+        android:text="Darslar"
+        android:textColor="@color/black"
+        android:gravity="center_vertical"
+        android:textSize="14sp"
+        android:paddingHorizontal="24dp"
+        android:drawableRight="@drawable/right"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnDailyNews"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnLessons"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/edittext_background"
+        app:backgroundTint="@null"
+        android:text="Kunlik yangiliklar"
+        android:textColor="@color/black"
+        android:gravity="center_vertical"
+        android:textSize="14sp"
+        android:paddingHorizontal="24dp"
+        android:drawableRight="@drawable/right"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnMotivationalVideos"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnDailyNews"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/edittext_background"
+        app:backgroundTint="@null"
+        android:text="Motivation videolar"
+        android:textColor="@color/black"
+        android:gravity="center_vertical"
+        android:textSize="14sp"
+        android:paddingHorizontal="24dp"
+        android:drawableRight="@drawable/right"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnVariantTests"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnMotivationalVideos"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/edittext_background"
+        app:backgroundTint="@null"
+        android:text="Variant testlar"
+        android:textColor="@color/black"
+        android:gravity="center_vertical"
+        android:textSize="14sp"
+        android:paddingHorizontal="24dp"
+        android:drawableRight="@drawable/right"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
