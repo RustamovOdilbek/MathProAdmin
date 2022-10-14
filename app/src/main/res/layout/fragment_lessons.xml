@@ -1,50 +1,235 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#EFEFEF"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.fragment.lessons.LessonsFragment">
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        app:elevation="0dp"
         android:background="#EFEFEF">
 
-        <com.google.android.material.appbar.AppBarLayout
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:elevation="0dp"
-            android:background="#EFEFEF">
+            android:layout_height="?attr/actionBarSize">
 
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize">
+                android:layout_height="match_parent"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="10dp"
+                    android:layout_height="20dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/left"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Darslar"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:layout_marginStart="11dp"/>
+            </LinearLayout>
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/appBar"
+        android:overScrollMode="never">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayoutBob"
+                style="@style/LoginTextInputLayoutStyleRole"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/rounded_white_background"
+                android:hint="Bob..."
+                android:textColorHint="@color/black"
+                app:boxStrokeWidth="0dp">
+
+                <AutoCompleteTextView
+                    android:id="@+id/filled_exposed_dropdown_bob"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:editable="false"
+                    android:focusable="false"
+                    android:inputType="none"
+                    android:textSize="16sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayoutSubject"
+                style="@style/LoginTextInputLayoutStyleRole"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/rounded_white_background"
+                android:hint="Mavzu..."
+                android:textColorHint="@color/black"
+                app:hintAnimationEnabled="false"
+                app:boxStrokeWidth="0dp">
+
+                <AutoCompleteTextView
+                    android:id="@+id/filled_exposed_dropdown_subject"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:editable="false"
+                    android:focusable="false"
+                    android:inputType="none"
+                    android:textSize="16sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="189dp"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="16dp"
+                android:orientation="vertical"
+                android:background="@drawable/layout_background">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical">
+                    android:layout_height="56dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/rounded_white_background">
 
                     <ImageView
                         android:layout_width="10dp"
-                        android:layout_height="20dp"
+                        android:layout_height="16dp"
+                        android:src="@drawable/paperclip"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/left"/>
+                        android:layout_marginStart="16dp"/>
 
-                    <TextView
+                    <EditText
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Darslar"
-                        android:textSize="16sp"
+                        android:hint="Videoni linkini yuklang"
                         android:textColor="@color/black"
-                        android:layout_marginStart="11dp"/>
+                        android:textColorHint="@color/black"
+                        android:textSize="16sp"
+                        android:background="@color/white"
+                        android:layout_marginStart="16dp"/>
+
                 </LinearLayout>
-            </androidx.appcompat.widget.Toolbar>
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:hint="Teks..."
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    android:textCursorDrawable="@color/black"
+                    android:textColorHint="@color/black"/>
 
-        </com.google.android.material.appbar.AppBarLayout>
+            </LinearLayout>
 
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+            <LinearLayout
+                android:id="@+id/llUploadFile"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="@drawable/rounded_white_background">
+                
+                <ImageView
+                    android:layout_width="10dp"
+                    android:layout_height="16dp"
+                    android:src="@drawable/paperclip"
+                    android:scaleType="centerCrop"
+                    android:layout_marginStart="16dp"/>
 
-</androidx.core.widget.NestedScrollView>
+                <TextView
+                    android:id="@+id/tvSaveDoc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Darsni elektron formatini yuklang"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:layout_marginStart="16dp"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Test"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:layout_marginStart="24sp"
+                android:layout_marginTop="40dp"/>
+            
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1.5dp"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginVertical="8dp"
+                android:background="#BDBDBD"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="24dp"
+                tools:listitem="@layout/item_add_test_view"
+                android:overScrollMode="never"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:spanCount="1"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnAddTest"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="20dp"
+                app:backgroundTint="@null"
+                android:layout_gravity="center"
+                app:icon="@drawable/green_plus"
+                app:iconTint="@color/m_green"
+                app:iconGravity="textStart"
+                android:gravity="center"
+                android:background="@drawable/rounded_2_width_green_background"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSave"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginBottom="30dp"
+                android:layout_marginTop="41dp"
+                android:background="@drawable/rounded_m_green_background"
+                app:backgroundTint="@null"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:text="Saqlash"
+                android:textSize="16sp"/>
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+</RelativeLayout>

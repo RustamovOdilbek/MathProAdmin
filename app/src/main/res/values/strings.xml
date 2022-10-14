@@ -2,4 +2,7 @@
     <string name="app_name">MathProAdmin</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="str_image_uploaded">Rasm yuklandi</string>
+    <string name="str_incorrent_login">Mavjud bo\'lmagan foydalanuvchi</string>
+    <string name="str_fields_not_filled">Login va Parolni kiriting</string>
 </resources>

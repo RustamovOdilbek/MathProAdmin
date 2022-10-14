@@ -1,25 +1,25 @@
 package com.mathpro.admin.adapter
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.mathpro.admin.databinding.ItemUserViewBinding
-import com.mathpro.admin.model.User
+import com.mathpro.admin.helper.OnClickEvent
+import com.mathpro.admin.model.user.UsersResponse
 
-class UserAdapter :
-    ListAdapter<User, UserAdapter.ItemViewHolder>(ITEM_DIF) {
+class UsersAdapter(private var onItemClicked: ((String) -> Unit)) :
+    ListAdapter<UsersResponse, UsersAdapter.ItemViewHolder>(ITEM_DIF) {
 
     companion object {
-        val ITEM_DIF = object : DiffUtil.ItemCallback<User>() {
-            override fun areItemsTheSame(oldItem: User, newItem: User): Boolean {
+        val ITEM_DIF = object : DiffUtil.ItemCallback<UsersResponse>() {
+            override fun areItemsTheSame(oldItem: UsersResponse, newItem: UsersResponse): Boolean {
                 return oldItem == newItem
             }
 
-            override fun areContentsTheSame(oldItem: User, newItem: User): Boolean {
+            override fun areContentsTheSame(oldItem: UsersResponse, newItem: UsersResponse): Boolean {
                 return oldItem == newItem
             }
 
@@ -29,8 +29,17 @@ class UserAdapter :
     inner class ItemViewHolder(val bn: ItemUserViewBinding) : RecyclerView.ViewHolder(bn.root) {
         @SuppressLint("SetTextI18n")
         fun bind(position: Int) {
-            val item = getItem(adapterPosition)
+            val item = getItem(position)
             with(bn) {
+                tvFullName.text = item.FullName
+                tvAddress.text = item.Viloyat
+                tvStudy.text = "(${item.Study})"
+                tvUserBirth.text = item.BirthDate
+                tvEmail.text = item.Email
+                tvPhoneNumber.text = item.Phone
+                ivDelete.setOnClickListener {
+                    onItemClicked.invoke(item.ID!!)
+                }
 
             }
         }
@@ -50,8 +59,8 @@ class UserAdapter :
         holder.bind(position)
     }
 
-    fun submitData(list: List<User>) {
-        val items = ArrayList<User>()
+    fun submitData(list: List<UsersResponse>) {
+        val items = ArrayList<UsersResponse>()
         items.addAll(currentList)
         items.addAll(list)
         items.reverse()

@@ -24,7 +24,7 @@
     </com.google.android.material.card.MaterialCardView>
 
     <TextView
-        android:id="@+id/tvName"
+        android:id="@+id/tvFullName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="@id/cvImage"
@@ -39,17 +39,17 @@
         android:id="@+id/tvAddress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/tvName"
+        app:layout_constraintTop_toBottomOf="@id/tvFullName"
         app:layout_constraintBottom_toTopOf="@id/tvEmail"
         app:layout_constraintStart_toEndOf="@id/cvImage"
         android:layout_marginStart="10dp"
         android:textStyle="bold"
-        android:text="Robert Fox"
+        android:text="Toshkent"
         android:textSize="14sp"
         android:textColor="#BDBDBD"/>
 
     <TextView
-        android:id="@+id/tvType"
+        android:id="@+id/tvStudy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="(school)"
@@ -67,9 +67,9 @@
         android:text="18.06.2014"
         android:textSize="14sp"
         android:textColor="#BDBDBD"
-        app:layout_constraintTop_toTopOf="@id/tvType"
-        app:layout_constraintBottom_toBottomOf="@id/tvType"
-        app:layout_constraintStart_toEndOf="@id/tvType"
+        app:layout_constraintTop_toTopOf="@id/tvStudy"
+        app:layout_constraintBottom_toBottomOf="@id/tvStudy"
+        app:layout_constraintStart_toEndOf="@id/tvStudy"
         android:layout_marginStart="5dp"/>
 
     <TextView
@@ -86,6 +86,7 @@
         android:textColor="#BDBDBD"/>
 
     <TextView
+        android:id="@+id/tvPhoneNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="998 90 242 11 12"
@@ -97,6 +98,7 @@
         app:layout_constraintStart_toEndOf="@id/tvEmail"/>
 
     <ImageView
+        android:id="@+id/ivDelete"
         android:layout_width="13dp"
         android:layout_height="13dp"
         android:src="@drawable/close_red"
