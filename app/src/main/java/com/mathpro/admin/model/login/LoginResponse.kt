@@ -3,8 +3,15 @@ package com.mathpro.admin.model.login
 import com.google.gson.annotations.SerializedName
 
 data class LoginResponse (
-    @SerializedName("Message" ) var Message : String?  = null,
-    @SerializedName("Success" ) var Success : Boolean? = null,
-    @SerializedName("Token"   ) var Token   : String?  = null
+    @SerializedName("data"    ) var data    : Data?    = Data(),
+    @SerializedName("message" ) var message : String?  = null,
+    @SerializedName("success" ) var success : Boolean? = null
+
+)
+
+
+data class Data (
+
+    @SerializedName("token" ) var token : String? = null
 
 )

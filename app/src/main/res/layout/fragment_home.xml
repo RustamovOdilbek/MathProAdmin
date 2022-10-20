@@ -16,7 +16,8 @@
         android:scaleType="centerCrop"
         android:src="@drawable/logo_small"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="27dp"/>
+        android:layout_marginTop="27dp"
+        tools:ignore="ContentDescription" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -24,7 +25,7 @@
         app:layout_constraintStart_toEndOf="@id/ivLogoSmall"
         app:layout_constraintTop_toTopOf="@id/ivLogoSmall"
         app:layout_constraintBottom_toBottomOf="@id/ivLogoSmall"
-        android:text="MathPro"
+        android:text="@string/str_math_pro"
         android:textSize="16sp"
         android:layout_marginStart="10dp"
         android:textStyle="bold"
@@ -38,10 +39,10 @@
         app:layout_constraintTop_toBottomOf="@id/ivLogoSmall"
         android:layout_marginStart="24sp"
         android:layout_marginTop="26dp"
-        android:textSize="16dp"
+        android:textSize="16sp"
         android:textColor="@color/black"
         android:textStyle="bold"
-        android:text="Admin panel" />
+        android:text="@string/str_admin_panel" />
     
     <View
         android:id="@+id/view"
@@ -65,15 +66,16 @@
         android:layout_marginTop="16dp"
         android:background="@drawable/rounded_white_background"
         app:backgroundTint="@null"
-        android:text="Foydalanuvchilar"
+        android:text="@string/str_users"
         android:textColor="@color/black"
         android:gravity="center_vertical"
         android:textSize="14sp"
         android:paddingHorizontal="24dp"
-        android:drawableRight="@drawable/right"/>
+        android:drawableRight="@drawable/right"
+        tools:ignore="RtlHardcoded" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnLessons"
+        android:id="@+id/btnEditChapter"
         android:layout_width="match_parent"
         android:layout_height="56dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -83,12 +85,30 @@
         android:layout_marginTop="8dp"
         android:background="@drawable/rounded_white_background"
         app:backgroundTint="@null"
-        android:text="Darslar"
+        android:text="@string/str_edit_chapter"
         android:textColor="@color/black"
         android:gravity="center_vertical"
         android:textSize="14sp"
         android:paddingHorizontal="24dp"
-        android:drawableRight="@drawable/right"/>
+        android:drawableEnd="@drawable/right"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnLessons"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnEditChapter"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/rounded_white_background"
+        app:backgroundTint="@null"
+        android:text="@string/str_lessons"
+        android:textColor="@color/black"
+        android:gravity="center_vertical"
+        android:textSize="14sp"
+        android:paddingHorizontal="24dp"
+        android:drawableEnd="@drawable/right"/>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnDailyNews"
@@ -101,12 +121,12 @@
         android:layout_marginTop="8dp"
         android:background="@drawable/rounded_white_background"
         app:backgroundTint="@null"
-        android:text="Kunlik yangiliklar"
+        android:text="@string/str_daily_news"
         android:textColor="@color/black"
         android:gravity="center_vertical"
         android:textSize="14sp"
         android:paddingHorizontal="24dp"
-        android:drawableRight="@drawable/right"/>
+        android:drawableEnd="@drawable/right"/>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnMotivationalVideos"
@@ -119,12 +139,12 @@
         android:layout_marginTop="8dp"
         android:background="@drawable/rounded_white_background"
         app:backgroundTint="@null"
-        android:text="Motivation videolar"
+        android:text="@string/str_motivational_videos"
         android:textColor="@color/black"
         android:gravity="center_vertical"
         android:textSize="14sp"
         android:paddingHorizontal="24dp"
-        android:drawableRight="@drawable/right"/>
+        android:drawableEnd="@drawable/right"/>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnVariantTests"
@@ -137,11 +157,11 @@
         android:layout_marginTop="8dp"
         android:background="@drawable/rounded_white_background"
         app:backgroundTint="@null"
-        android:text="Variant testlar"
+        android:text="@string/str_variant_test"
         android:textColor="@color/black"
         android:gravity="center_vertical"
         android:textSize="14sp"
         android:paddingHorizontal="24dp"
-        android:drawableRight="@drawable/right"/>
+        android:drawableEnd="@drawable/right"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

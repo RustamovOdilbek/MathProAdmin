@@ -5,6 +5,6 @@ import com.mathpro.admin.model.user.UserDeleteResponse
 import com.mathpro.admin.model.user.UsersResponse
 
 interface UserViewModel {
-    fun allUsers(block: (Result<ArrayList<UsersResponse>>) -> Unit)
-    fun deletUser(deleteRequest: UserDeleteRequest, block: (Result<UserDeleteResponse>) -> Unit)
+    fun allUsers(block: (Result<UsersResponse>) -> Unit)
+    fun deletUser(userDeleteRequest: UserDeleteRequest, block: (Result<UserDeleteResponse>) -> Unit)
 }

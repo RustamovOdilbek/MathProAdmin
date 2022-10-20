@@ -5,4 +5,15 @@
     <string name="str_image_uploaded">Rasm yuklandi</string>
     <string name="str_incorrent_login">Mavjud bo\'lmagan foydalanuvchi</string>
     <string name="str_fields_not_filled">Login va Parolni kiriting</string>
+    <string name="str_users_count">Foydalanuvchilar soni:</string>
+    <string name="str_users">Foydalanuvchilar</string>
+    <string name="str_math_pro">MathPro</string>
+    <string name="str_admin_panel">Admin panel</string>
+    <string name="str_edit_chapter">Boblarni tahrirlash</string>
+    <string name="str_lessons">Darslar</string>
+    <string name="str_daily_news">Kunlik yangiliklar</string>
+    <string name="str_motivational_videos">Motivation videolar</string>
+    <string name="str_variant_test">Variant testlar</string>
+    <string name="str_chapter">Boblar</string>
+    <string name="str_add_chapter">Bob qo\'shish</string>
 </resources>

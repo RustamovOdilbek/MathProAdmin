@@ -56,8 +56,8 @@ class NetworkModule {
             val builder = chain.request().newBuilder()
             if (sharedPref.getUserToken(USER_TOKEN, "").isNotEmpty()) {
                 builder.addHeader(
-                    "Authorization",
-                    "Bearer ${sharedPref.getUserToken(USER_TOKEN, "")}"
+                    "token",
+                    sharedPref.getUserToken(USER_TOKEN, "")
                 )
             }
             chain.proceed(builder.build())

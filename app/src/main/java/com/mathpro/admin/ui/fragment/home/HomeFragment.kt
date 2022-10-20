@@ -10,6 +10,7 @@ import com.mathpro.admin.R
 import com.mathpro.admin.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
+    private val TAG = "HomeFragment"
     private lateinit var binding: FragmentHomeBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -23,6 +24,11 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         binding.btnUsers.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_usersFragment)
         }
+
+        binding.btnEditChapter.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_chapterFragment)
+        }
+
         binding.btnLessons.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_lessonsFragment)
         }

@@ -1,25 +1,29 @@
 package com.mathpro.admin.adapter
 
 import android.annotation.SuppressLint
+import android.os.Build
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.mathpro.admin.databinding.ItemUserViewBinding
 import com.mathpro.admin.helper.OnClickEvent
+import com.mathpro.admin.model.user.Users
 import com.mathpro.admin.model.user.UsersResponse
+import com.mathpro.admin.utils.viewExtension.dateConvert
 
 class UsersAdapter(private var onItemClicked: ((String) -> Unit)) :
-    ListAdapter<UsersResponse, UsersAdapter.ItemViewHolder>(ITEM_DIF) {
+    ListAdapter<Users, UsersAdapter.ItemViewHolder>(ITEM_DIF) {
 
     companion object {
-        val ITEM_DIF = object : DiffUtil.ItemCallback<UsersResponse>() {
-            override fun areItemsTheSame(oldItem: UsersResponse, newItem: UsersResponse): Boolean {
+        val ITEM_DIF = object : DiffUtil.ItemCallback<Users>() {
+            override fun areItemsTheSame(oldItem: Users, newItem: Users): Boolean {
                 return oldItem == newItem
             }
 
-            override fun areContentsTheSame(oldItem: UsersResponse, newItem: UsersResponse): Boolean {
+            override fun areContentsTheSame(oldItem: Users, newItem: Users): Boolean {
                 return oldItem == newItem
             }
 
@@ -27,6 +31,7 @@ class UsersAdapter(private var onItemClicked: ((String) -> Unit)) :
     }
 
     inner class ItemViewHolder(val bn: ItemUserViewBinding) : RecyclerView.ViewHolder(bn.root) {
+        @RequiresApi(Build.VERSION_CODES.O)
         @SuppressLint("SetTextI18n")
         fun bind(position: Int) {
             val item = getItem(position)
@@ -34,7 +39,7 @@ class UsersAdapter(private var onItemClicked: ((String) -> Unit)) :
                 tvFullName.text = item.FullName
                 tvAddress.text = item.Viloyat
                 tvStudy.text = "(${item.Study})"
-                tvUserBirth.text = item.BirthDate
+                tvUserBirth.text = dateConvert(item.BirthDate!!)
                 tvEmail.text = item.Email
                 tvPhoneNumber.text = item.Phone
                 ivDelete.setOnClickListener {
@@ -59,11 +64,10 @@ class UsersAdapter(private var onItemClicked: ((String) -> Unit)) :
         holder.bind(position)
     }
 
-    fun submitData(list: List<UsersResponse>) {
-        val items = ArrayList<UsersResponse>()
-        items.addAll(currentList)
-        items.addAll(list)
-        items.reverse()
-        submitList(items)
-    }
+//    fun submitData(list: List<Users>) {
+//        val items = ArrayList<Users>()
+//        items.addAll(currentList)
+//        items.addAll(list)
+//        submitList(items)
+//    }
 }

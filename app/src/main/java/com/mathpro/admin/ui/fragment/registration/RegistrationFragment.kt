@@ -36,9 +36,9 @@ class RegistrationFragment : Fragment(R.layout.fragment_registration) {
             if (isFieldsFilled()){
                 viewModel.login(getLogin()){
                     it.onSuccess { loginResponse ->
-                        snackBar(loginResponse.Message.toString())
+                        snackBar(loginResponse.message.toString())
                         Log.d(TAG, "initViews: ${loginResponse}")
-                        sharedPref.saveUserToken(USER_TOKEN, loginResponse.Token!!)
+                        sharedPref.saveUserToken(USER_TOKEN, loginResponse.data!!.token!!)
                         Log.d(TAG, "initViews: ${sharedPref.getUserToken(USER_TOKEN, "")}")
                         findNavController().navigate(R.id.action_registrationFragment_to_homeFragment)
                     }

@@ -25,6 +25,10 @@
         <action
             android:id="@+id/action_homeFragment_to_variantTestsFragment"
             app:destination="@id/variantTestsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_chapterFragment"
+            app:destination="@id/chapterFragment" />
+
     </fragment>
     <fragment
         android:id="@+id/dailyNewsFragment"
@@ -60,4 +64,10 @@
         android:name="com.mathpro.admin.ui.fragment.varianttests.VariantTestsFragment"
         android:label="fragment_variant_tests"
         tools:layout="@layout/fragment_variant_tests" />
+    <fragment
+        android:id="@+id/chapterFragment"
+        android:name="com.mathpro.admin.ui.fragment.chapter.ChapterFragment"
+        android:label="fragment_chapter"
+        tools:layout="@layout/fragment_chapter" />
+
 </navigation>

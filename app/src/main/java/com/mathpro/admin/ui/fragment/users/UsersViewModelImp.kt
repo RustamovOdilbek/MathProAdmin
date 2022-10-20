@@ -14,7 +14,7 @@ import javax.inject.Inject
 class UsersViewModelImp  @Inject constructor(private val authRepository: AuthRepository):
     ViewModel(),
     UserViewModel {
-    override fun allUsers(block: (Result<ArrayList<UsersResponse>>) -> Unit) {
+    override fun allUsers(block: (Result<UsersResponse>) -> Unit) {
         viewModelScope.launch {
             try {
                 block(Result.success(authRepository.allUsers()))
@@ -25,12 +25,12 @@ class UsersViewModelImp  @Inject constructor(private val authRepository: AuthRep
     }
 
     override fun deletUser(
-        deleteRequest: UserDeleteRequest,
+        userDeleteRequest: UserDeleteRequest,
         block: (Result<UserDeleteResponse>) -> Unit
     ) {
         viewModelScope.launch {
             try {
-                block(Result.success(authRepository.deleteUser(deleteRequest)))
+                block(Result.success(authRepository.deleteUser(userDeleteRequest)))
             }catch (e: Exception){
                 block(Result.failure(e))
             }

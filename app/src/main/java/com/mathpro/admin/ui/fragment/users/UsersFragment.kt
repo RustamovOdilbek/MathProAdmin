@@ -1,21 +1,19 @@
 package com.mathpro.admin.ui.fragment.users
 
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.View
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import by.kirich1409.viewbindingdelegate.viewBinding
-import com.example.mathpro.extension.timeFormat
 import com.mathpro.admin.R
 import com.mathpro.admin.adapter.UsersAdapter
 import com.mathpro.admin.databinding.FragmentUsersBinding
 import com.mathpro.admin.model.user.UserDeleteRequest
+import com.mathpro.admin.utils.viewExtension.back
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class UsersFragment : Fragment(R.layout.fragment_users) {
-    private val TAG = "UsersFragment"
     private val binding by viewBinding(FragmentUsersBinding::bind)
     private val viewModel: UserViewModel by viewModels<UsersViewModelImp>()
     private lateinit var adapter: UsersAdapter
@@ -27,40 +25,36 @@ class UsersFragment : Fragment(R.layout.fragment_users) {
     }
 
     private fun initViews() {
-        adapter = UsersAdapter() {
-            var userDeleteRequest = UserDeleteRequest(it)
-            viewModel.deletUser(userDeleteRequest){
-                it.onSuccess { userDeleteResponse ->
-                    allUsers()
-                    Log.d(TAG, "initViews: ${userDeleteResponse}")
-                }
-                it.onFailure {
-                    Log.d(TAG, "error: ${it.message}")
-                }
-            }
+        adapter = UsersAdapter() { id->
+            deleteUser(id)
         }
-
-        allUsers()
 
         binding.recyclerView.adapter = adapter
 
-        Log.d(TAG, "initViews: ${timeFormat("")}")
+        allUsers()
 
-        binding.ivBack.setOnClickListener {
-            requireActivity().onBackPressed()
+        binding.ivBack.setOnClickListener { back() }
+    }
+
+    private fun deleteUser(id: String) {
+        viewModel.deletUser(UserDeleteRequest(id = id)){
+            it.onSuccess { userDeleteResponse ->
+                allUsers()
+            }
+            it.onFailure {
+            }
         }
     }
 
     private fun allUsers(){
         viewModel.allUsers {
             it.onSuccess { usersResponse ->
-                Log.d(TAG, "initViews: ${usersResponse}")
-                adapter.submitData(usersResponse)
+                adapter.submitList(usersResponse.data!!.users)
+                binding.lToolbar.tvUserCount.text = usersResponse.data!!.number.toString()
             }
             it.onFailure {
-                Log.d(TAG, "error: ${it.message}")
+
             }
         }
     }
-
 }

@@ -9,18 +9,24 @@ import android.util.Log
 import android.view.View
 import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import com.mathpro.admin.R
 import com.mathpro.admin.adapter.AddTestAdapter
 import com.mathpro.admin.databinding.FragmentLessonsBinding
 import com.mathpro.admin.helper.OnClickEvent
 import com.mathpro.admin.model.Test
+import com.mathpro.admin.model.lesson.CreateLessonRequest
+import com.mathpro.admin.ui.fragment.users.UserViewModel
+import com.mathpro.admin.ui.fragment.users.UsersViewModelImp
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class LessonsFragment : Fragment(R.layout.fragment_lessons) {
     private val TAG = "LessonsFragment"
     private lateinit var binding: FragmentLessonsBinding
+    private val viewModel: LessonsViewModel by viewModels<LessonsViewModelImp>()
     private lateinit var adapter: AddTestAdapter
-    private val PICK_PDF_REQUEST = 1001
-    private val IMAGE_PICKER_SELECT = 1002
+    private val IMAGE_PICKER_SELECT = 1001
     private lateinit var testList: ArrayList<Test>
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -43,22 +49,32 @@ class LessonsFragment : Fragment(R.layout.fragment_lessons) {
 
         binding.recyclerView.adapter = adapter
 
-        binding.llUploadFile.setOnClickListener {
-            uploadFile()
-        }
         var a = 1
         binding.btnAddTest.setOnClickListener {
             testList.add(Test(a++))
             adapter.submitData(testList)
         }
 
-    }
+        binding.btnSave.setOnClickListener {
 
-    private fun uploadFile() {
-        val intent = Intent()
-        intent.setType("application/msword|text/plain|application/pdf");
-        intent.action = Intent.ACTION_GET_CONTENT
-        startActivityForResult(Intent.createChooser(intent, "Select Pdf"), PICK_PDF_REQUEST)
+            val description = binding.etDescription.text.toString()
+            val pdfLink = binding.etPdfLink.text.toString()
+            val theme = binding.etThemeLink.text.toString()
+            val videoLink = binding.etVideoLink.text.toString()
+            val createLessonRequest = CreateLessonRequest("b4194e55-b86a-4e59-99a9-089813f428db",
+                description = description, pdfLink = pdfLink,
+                theme = theme, videoLink = videoLink)
+
+            viewModel.createLesson(createLessonRequest){
+                it.onSuccess { createLessonResponse ->
+                    Log.d(TAG, "initViews: ${createLessonResponse}")
+                }
+                it.onFailure {
+                    Log.d(TAG, "error: ${it.message}")
+                }
+            }
+        }
+
     }
 
     fun pickGalleryPhotoOrVedio(){
@@ -69,12 +85,8 @@ class LessonsFragment : Fragment(R.layout.fragment_lessons) {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == PICK_PDF_REQUEST && resultCode == RESULT_OK && data != null && data.data != null) {
-            var filePath = data.data
-            Log.d(TAG, "onActivityResult: ${filePath!!.pathSegments.last()}")
-            binding.tvSaveDoc.text = filePath.pathSegments.last()
 
-        }else if (requestCode == IMAGE_PICKER_SELECT && resultCode == RESULT_OK && data != null && data.data != null) {
+        if (requestCode == IMAGE_PICKER_SELECT && resultCode == RESULT_OK && data != null && data.data != null) {
             val selectedMediaUri: Uri = data.getData()!!
             if (selectedMediaUri.toString().contains("image")) {
                 //handle image
@@ -87,15 +99,23 @@ class LessonsFragment : Fragment(R.layout.fragment_lessons) {
     }
 
     private fun roleSpinner() {
-        val type: Array<String> = arrayOf("1-bob Numberlar", "2-bob Kasr sonlar", "3-bob Tenglamalar", "4-bob Tengsizliklar")
-        val adapter: ArrayAdapter<String> =
-            ArrayAdapter(requireContext(), R.layout.dropdown_menu_popup_item, type)
-        val editTextFilledExposedDropdown = binding.filledExposedDropdownBob
+       viewModel.allChapters {
+            it.onSuccess { allCHapter ->
+                val array: ArrayList<String> = arrayListOf()
+                allCHapter.data!!.bobs.forEach {
+                    array.add(it.Name!!)
+                }
+                val adapter: ArrayAdapter<String> =
+                    ArrayAdapter(requireContext(), R.layout.dropdown_menu_popup_item, array)
+                Log.d(TAG, "initViews: ${allCHapter}")
+                val editTextFilledExposedDropdown = binding.filledExposedDropdownBob
 
-        editTextFilledExposedDropdown.setAdapter(adapter)
+                editTextFilledExposedDropdown.setAdapter(adapter)
+            }
+            it.onFailure {
+                Log.d(TAG, "error: ${it.message}")
+            }
+        }
 
-        val editTextFilledExposedDropdownSubject = binding.filledExposedDropdownSubject
-
-        editTextFilledExposedDropdownSubject.setAdapter(adapter)
     }
 }

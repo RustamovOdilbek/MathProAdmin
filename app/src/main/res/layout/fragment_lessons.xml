@@ -63,6 +63,7 @@
                 android:layout_marginTop="16dp"
                 android:background="@drawable/rounded_white_background"
                 android:hint="Bob..."
+                android:elevation="4dp"
                 android:textColorHint="@color/black"
                 app:boxStrokeWidth="0dp">
 
@@ -73,31 +74,40 @@
                     android:editable="false"
                     android:focusable="false"
                     android:inputType="none"
+                    android:overScrollMode="never"
                     android:textSize="16sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textInputLayoutSubject"
-                style="@style/LoginTextInputLayoutStyleRole"
+            <LinearLayout
+                android:id="@+id/llUploadTheme"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="56dp"
                 android:layout_marginHorizontal="24dp"
                 android:layout_marginTop="16dp"
-                android:background="@drawable/rounded_white_background"
-                android:hint="Mavzu..."
-                android:textColorHint="@color/black"
-                app:hintAnimationEnabled="false"
-                app:boxStrokeWidth="0dp">
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:elevation="4dp"
+                android:background="@drawable/rounded_white_background">
 
-                <AutoCompleteTextView
-                    android:id="@+id/filled_exposed_dropdown_subject"
-                    android:layout_width="match_parent"
+                <ImageView
+                    android:layout_width="10dp"
+                    android:layout_height="16dp"
+                    android:src="@drawable/paperclip"
+                    android:scaleType="centerCrop"
+                    android:layout_marginStart="16dp"/>
+
+                <EditText
+                    android:id="@+id/etThemeLink"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:editable="false"
-                    android:focusable="false"
-                    android:inputType="none"
-                    android:textSize="16sp" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    android:hint="Mavzu nomini kiriting"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
+                    android:textSize="16sp"
+                    android:background="@color/white"
+                    android:layout_marginStart="16dp"/>
+
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -105,6 +115,7 @@
                 android:layout_marginHorizontal="24dp"
                 android:layout_marginTop="16dp"
                 android:orientation="vertical"
+                android:elevation="4dp"
                 android:background="@drawable/layout_background">
 
                 <LinearLayout
@@ -122,9 +133,10 @@
                         android:layout_marginStart="16dp"/>
 
                     <EditText
+                        android:id="@+id/etVideoLink"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:hint="Videoni linkini yuklang"
+                        android:hint="Videoni linkini kiriting"
                         android:textColor="@color/black"
                         android:textColorHint="@color/black"
                         android:textSize="16sp"
@@ -133,6 +145,7 @@
 
                 </LinearLayout>
                 <EditText
+                    android:id="@+id/etDescription"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
@@ -152,6 +165,7 @@
                 android:layout_marginTop="16dp"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
+                android:elevation="4dp"
                 android:background="@drawable/rounded_white_background">
                 
                 <ImageView
@@ -161,13 +175,15 @@
                     android:scaleType="centerCrop"
                     android:layout_marginStart="16dp"/>
 
-                <TextView
-                    android:id="@+id/tvSaveDoc"
+                <EditText
+                    android:id="@+id/etPdfLink"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Darsni elektron formatini yuklang"
+                    android:hint="Darsni elektron formatini linkini kiriting"
                     android:textColor="@color/black"
+                    android:textColorHint="@color/black"
                     android:textSize="16sp"
+                    android:background="@color/white"
                     android:layout_marginStart="16dp"/>
 
             </LinearLayout>
@@ -211,6 +227,7 @@
                 app:iconTint="@color/m_green"
                 app:iconGravity="textStart"
                 android:gravity="center"
+                android:elevation="4dp"
                 android:background="@drawable/rounded_2_width_green_background"/>
 
             <com.google.android.material.button.MaterialButton
@@ -226,6 +243,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:text="Saqlash"
+                android:elevation="4dp"
                 android:textSize="16sp"/>
         </LinearLayout>
 
