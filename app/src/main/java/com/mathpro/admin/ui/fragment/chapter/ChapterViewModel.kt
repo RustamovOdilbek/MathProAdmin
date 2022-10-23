@@ -2,7 +2,7 @@ package com.mathpro.admin.ui.fragment.chapter
 
 import com.mathpro.admin.model.chapter.AddChapterResponse
 import com.mathpro.admin.model.chapter.ChapterResponse
-import com.mathpro.admin.model.chapter.Response
+import com.mathpro.admin.model.Response
 import com.mathpro.admin.model.chapter.EditChapterRequest
 
 interface ChapterViewModel {

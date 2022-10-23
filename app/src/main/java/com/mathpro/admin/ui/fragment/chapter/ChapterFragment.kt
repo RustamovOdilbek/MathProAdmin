@@ -36,7 +36,9 @@ class ChapterFragment : Fragment(R.layout.fragment_chapter) {
 
         adapter = ChapterAdapter(){id->
             Log.d(TAG, "initViews: ${id}")
-
+            findNavController().navigate(R.id.action_chapterFragment_to_allThemeFragment,
+                bundleOf( CHAPTER_ID to id)
+            )
         }
         binding.recyclerView.adapter = adapter
 
@@ -54,6 +56,7 @@ class ChapterFragment : Fragment(R.layout.fragment_chapter) {
         val dialog = ChapterDialog(){ chapter ->
             viewModel.addChapter(chapter, {
                 Log.d(TAG, "addChapter: ${it}")
+                allChapters()
             })
         }
 
@@ -64,7 +67,9 @@ class ChapterFragment : Fragment(R.layout.fragment_chapter) {
         viewModel.allChapters {
             it.onSuccess { usersResponse ->
                 Log.d(TAG, "initViews: ${usersResponse}")
+                adapter.currentList.clear()
                 adapter.submitData(usersResponse.data!!.bobs)
+
             }
             it.onFailure {
                 Log.d(TAG, "error: ${it.message}")

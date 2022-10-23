@@ -5,7 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.mathpro.admin.model.chapter.AddChapterResponse
 import com.mathpro.admin.model.chapter.ChapterResponse
 import com.mathpro.admin.model.chapter.EditChapterRequest
-import com.mathpro.admin.model.chapter.Response
+import com.mathpro.admin.model.Response
 import com.mathpro.admin.repository.AuthRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch

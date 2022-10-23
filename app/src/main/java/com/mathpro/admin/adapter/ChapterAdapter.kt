@@ -30,9 +30,9 @@ class ChapterAdapter(private var onItemClicked: ((String) -> Unit)):
         fun bind(position: Int) {
             val item = getItem(itemCount - position - 1)
             with(bn) {
-                tvBob.text = "${position+1}-Bob-${item.Name}"
+                tvBob.text = "${position+1}-Bob-${item.name}"
                 ivNext.setOnClickListener {
-                    onItemClicked.invoke(item.ID!!)
+                    onItemClicked.invoke(item.id!!)
                 }
             }
         }
@@ -55,6 +55,7 @@ class ChapterAdapter(private var onItemClicked: ((String) -> Unit)):
     fun submitData(list: List<Bobs>) {
         val items = ArrayList<Bobs>()
         items.addAll(currentList)
+        items.clear()
         items.addAll(list)
         items.reverse()
         submitList(items)

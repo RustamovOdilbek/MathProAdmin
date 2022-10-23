@@ -36,14 +36,14 @@ class UsersAdapter(private var onItemClicked: ((String) -> Unit)) :
         fun bind(position: Int) {
             val item = getItem(position)
             with(bn) {
-                tvFullName.text = item.FullName
-                tvAddress.text = item.Viloyat
-                tvStudy.text = "(${item.Study})"
-                tvUserBirth.text = dateConvert(item.BirthDate!!)
-                tvEmail.text = item.Email
-                tvPhoneNumber.text = item.Phone
+                tvFullName.text = item.fullName
+                tvAddress.text = item.viloyat
+                tvStudy.text = "(${item.study})"
+                tvUserBirth.text = dateConvert(item.birthDay!!)
+                tvEmail.text = item.email
+                tvPhoneNumber.text = item.phoneNumber
                 ivDelete.setOnClickListener {
-                    onItemClicked.invoke(item.ID!!)
+                    onItemClicked.invoke(item.id!!)
                 }
 
             }
@@ -60,14 +60,8 @@ class UsersAdapter(private var onItemClicked: ((String) -> Unit)) :
         )
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         holder.bind(position)
     }
-
-//    fun submitData(list: List<Users>) {
-//        val items = ArrayList<Users>()
-//        items.addAll(currentList)
-//        items.addAll(list)
-//        submitList(items)
-//    }
 }

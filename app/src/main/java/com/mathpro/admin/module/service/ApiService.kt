@@ -1,13 +1,13 @@
 package com.mathpro.admin.module.service
 
-import com.mathpro.admin.model.chapter.AddChapterResponse
-import com.mathpro.admin.model.chapter.ChapterResponse
-import com.mathpro.admin.model.chapter.EditChapterRequest
-import com.mathpro.admin.model.chapter.Response
+import com.mathpro.admin.model.Response
+import com.mathpro.admin.model.alltheme.ThemesResponse
+import com.mathpro.admin.model.chapter.*
 import com.mathpro.admin.model.lesson.CreateLessonRequest
 import com.mathpro.admin.model.lesson.CreateLessonResponse
 import com.mathpro.admin.model.login.LoginRequest
 import com.mathpro.admin.model.login.LoginResponse
+import com.mathpro.admin.model.theme.*
 import com.mathpro.admin.model.user.UserDeleteRequest
 import com.mathpro.admin.model.user.UserDeleteResponse
 import com.mathpro.admin.model.user.UsersResponse
@@ -28,8 +28,7 @@ interface ApiService {
     suspend fun allChapters(): ChapterResponse
 
     @POST("admin/lessons/create/bob")
-    @FormUrlEncoded
-    suspend fun addChapter(@Field("name") chapter: String): AddChapterResponse
+    suspend fun addChapter(@Body chapter: AddRequest): AddChapterResponse
 
     @PUT("admin/lessons/update/bob/")
     suspend fun editChapter(@Path ("ID") id: String, @Body editRequest: EditChapterRequest):
@@ -40,5 +39,28 @@ interface ApiService {
 
     @POST("admin/lessons/create/lesson")
     suspend fun createLesson(@Body createLessonRequest: CreateLessonRequest): CreateLessonResponse
+
+    @DELETE("admin/lessons/delete/lesson")
+    suspend fun deleteLesson(deleteLessonRequest: DeleteLessonRequest): Response
+
+    //bobId allThemes
+
+    @GET("get/all/lesson/{ID}")
+    suspend fun allThemes(@Path ("ID") id: String) : ThemesResponse
+
+    //edit theme
+    @GET()
+
+    @PUT("admin/lessons/update/description")
+    suspend fun editDescription(@Body descriptionRequest: DescriptionRequest): Response
+
+    @PUT("admin/lessons/update/pdf")
+    suspend fun editPdfLink(@Body pdfRequest: PdfRequest): Response
+
+    @PUT("admin/lessons/update/theme")
+    suspend fun editTheme(@Body themeRequest: ThemeRequest): Response
+
+    @PUT("admin/lessons/update/video")
+    suspend fun editVedio(@Body vedioRequest: VedioRequest): Response
 
 }

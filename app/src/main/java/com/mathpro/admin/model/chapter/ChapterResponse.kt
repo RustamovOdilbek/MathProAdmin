@@ -19,7 +19,7 @@ data class Data (
 
 data class Bobs (
 
-    @SerializedName("ID"   ) var ID   : String? = null,
-    @SerializedName("Name" ) var Name : String? = null
+    @SerializedName("id"   ) var id   : String? = null,
+    @SerializedName("name" ) var name : String? = null
 
 )

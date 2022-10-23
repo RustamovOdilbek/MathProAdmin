@@ -68,6 +68,24 @@
         android:id="@+id/chapterFragment"
         android:name="com.mathpro.admin.ui.fragment.chapter.ChapterFragment"
         android:label="fragment_chapter"
-        tools:layout="@layout/fragment_chapter" />
+        tools:layout="@layout/fragment_chapter" >
+        <action
+            android:id="@+id/action_chapterFragment_to_allThemeFragment"
+            app:destination="@id/allThemeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/themeFragment"
+        android:name="com.mathpro.admin.ui.fragment.theme.ThemeFragment"
+        android:label="fragment_theme"
+        tools:layout="@layout/fragment_theme" />
+    <fragment
+        android:id="@+id/allThemeFragment"
+        android:name="com.mathpro.admin.ui.fragment.alltheme.AllThemeFragment"
+        android:label="fragment_all_theme"
+        tools:layout="@layout/fragment_all_theme" >
+        <action
+            android:id="@+id/action_allThemeFragment_to_themeFragment"
+            app:destination="@id/themeFragment" />
+    </fragment>
 
 </navigation>

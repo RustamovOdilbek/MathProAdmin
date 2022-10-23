@@ -1,5 +1,6 @@
 package com.mathpro.admin.ui.fragment.lessons
 
+import android.annotation.SuppressLint
 import android.app.Activity.RESULT_OK
 import android.content.Intent
 import android.net.Uri
@@ -75,14 +76,19 @@ class LessonsFragment : Fragment(R.layout.fragment_lessons) {
             }
         }
 
+        binding.ivBack.setOnClickListener {
+            requireActivity().onBackPressed()
+        }
     }
 
+    @SuppressLint("IntentReset")
     fun pickGalleryPhotoOrVedio(){
         val pickIntent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
         pickIntent.type = "image/* video/*"
         startActivityForResult(pickIntent, IMAGE_PICKER_SELECT)
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
@@ -103,7 +109,7 @@ class LessonsFragment : Fragment(R.layout.fragment_lessons) {
             it.onSuccess { allCHapter ->
                 val array: ArrayList<String> = arrayListOf()
                 allCHapter.data!!.bobs.forEach {
-                    array.add(it.Name!!)
+                    array.add(it.name!!)
                 }
                 val adapter: ArrayAdapter<String> =
                     ArrayAdapter(requireContext(), R.layout.dropdown_menu_popup_item, array)

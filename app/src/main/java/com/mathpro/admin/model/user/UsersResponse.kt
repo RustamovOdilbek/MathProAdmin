@@ -20,15 +20,15 @@ data class Data (
 
 data class Users (
 
-    @SerializedName("ID"        ) var ID        : String?  = null,
-    @SerializedName("FullName"  ) var FullName  : String?  = null,
-    @SerializedName("Login"     ) var Login     : String?  = null,
-    @SerializedName("Password"  ) var Password  : String?  = null,
-    @SerializedName("Viloyat"   ) var Viloyat   : String?  = null,
-    @SerializedName("BirthDate" ) var BirthDate : String?  = null,
-    @SerializedName("Email"     ) var Email     : String?  = null,
-    @SerializedName("Phone"     ) var Phone     : String?  = null,
-    @SerializedName("Study"     ) var Study     : String?  = null,
-    @SerializedName("Payed"     ) var Payed     : Boolean? = null
+    @SerializedName("id"           ) var id          : String?  = null,
+    @SerializedName("full_name"    ) var fullName    : String?  = null,
+    @SerializedName("login"        ) var login       : String?  = null,
+    @SerializedName("password"     ) var password    : String?  = null,
+    @SerializedName("viloyat"      ) var viloyat     : String?  = null,
+    @SerializedName("birth_day"    ) var birthDay    : String?  = null,
+    @SerializedName("email"        ) var email       : String?  = null,
+    @SerializedName("phone_number" ) var phoneNumber : String?  = null,
+    @SerializedName("study"        ) var study       : String?  = null,
+    @SerializedName("payed"        ) var payed       : Boolean? = null
 
 )

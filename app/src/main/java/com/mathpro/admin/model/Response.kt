@@ -1,4 +1,4 @@
-package com.mathpro.admin.model.chapter
+package com.mathpro.admin.model
 
 import com.google.gson.annotations.SerializedName
 
